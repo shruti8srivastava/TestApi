@@ -4,6 +4,7 @@ using System.Linq;
 using TestApi.DataBase;
 using TestApi.DTO;
 using TestApi.Model;
+using TestApi.Service;
 
 namespace TestApi.Controllers
 {
@@ -11,17 +12,17 @@ namespace TestApi.Controllers
     [ApiController]
     public class EmployeeController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        public EmployeeController(ApplicationDbContext context)
+        private readonly EmployeeService _employeeService;
+        public EmployeeController(EmployeeService employeeService)
         {
-            _context = context;
+            _employeeService = employeeService;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
             // Fetch all employees from the database
-            var employees = _context.Employees.ToList();
+            var employees = _employeeService.GetAllEmployees();
             return Ok(employees);
         }
         [HttpPost]
