@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TestApi.DataBase;
+using TestApi.Service;
+
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
@@ -16,6 +18,7 @@ builder.Configuration
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    builder.Services.AddScoped<EmployeeService>();
 // Configure OpenAPI/Swagger services
 builder.Services.AddEndpointsApiExplorer();  // For endpoint discovery
 builder.Services.AddSwaggerGen();  // For generating Swagger documentation
