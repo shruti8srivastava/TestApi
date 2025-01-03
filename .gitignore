@@ -1,0 +1,33 @@
+# Build Folders
+bin/
+obj/
+out/
+
+# User-Specific Files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Visual Studio
+.vscode/
+.vs/
+.idea/
+
+# Temporary Files
+*.tmp
+*.temp
+*.pid
+*.manifest
+
+# OS-Specific Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependency Folders
+packages/
+node_modules/
